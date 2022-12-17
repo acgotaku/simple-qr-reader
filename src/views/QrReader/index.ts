@@ -1,3 +1,3 @@
-import QrReader from "./QrReader";
+import QrReader from './QrReader';
 
 export default QrReader;

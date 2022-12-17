@@ -1,16 +1,16 @@
-import { forwardRef, useMemo } from "react";
-import cls from "clsx";
-import styles from "./button.module.css";
-import { IButtonProps } from "./Button.types";
+import { forwardRef, useMemo } from 'react';
+import cls from 'clsx';
+import styles from './button.module.css';
+import { IButtonProps } from './Button.types';
 
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   (
     {
       children,
-      color = "primary",
-      type = "button",
+      color = 'primary',
+      type = 'button',
       disabled = false,
-      className = "",
+      className = '',
       ...rest
     }: IButtonProps,
     ref
@@ -33,6 +33,6 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   }
 );
 
-Button.displayName = "Button";
+Button.displayName = 'Button';
 
 export default Button;

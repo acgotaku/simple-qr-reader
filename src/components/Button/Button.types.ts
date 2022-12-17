@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export type ButtonColor = "standard" | "primary" | "danger" | "outline";
+export type ButtonColor = 'standard' | 'primary' | 'danger' | 'outline';
 
 export interface IButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
