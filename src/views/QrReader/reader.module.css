@@ -1,0 +1,9 @@
+.reader {
+  height: 100%;
+  max-width: var(--wdith-main);
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+}

@@ -30,7 +30,7 @@
   --font-size-2xl: 2.5rem; /* 40px */
   --height-header: 48px;
   --width-sidebar: 240px;
-  --wdith-main: 800px;
+  --wdith-main: 320px;
   --z-index-header: 1000;
   --z-index-sidebar: 1010;
   --z-index-popper: 1100;

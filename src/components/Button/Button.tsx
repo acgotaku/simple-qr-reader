@@ -1,34 +1,28 @@
-import  { forwardRef, useMemo } from 'react';
-import cls from 'clsx';
-import styles from './button.module.css';
-import { IButtonProps } from './Button.types';
+import { forwardRef, useMemo } from "react";
+import cls from "clsx";
+import styles from "./button.module.css";
+import { IButtonProps } from "./Button.types";
 
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   (
     {
       children,
-      color = 'primary',
-      loading = false,
-      type = 'button',
+      color = "primary",
+      type = "button",
       disabled = false,
-      className = '',
+      className = "",
       ...rest
     }: IButtonProps,
     ref
   ) => {
-    const disableState = useMemo(
-      () => disabled || loading,
-      [disabled, loading]
-    );
-
     return (
       <button
         ref={ref}
         type={type}
-        disabled={disableState}
+        disabled={disabled}
         className={cls(
           styles.button,
-          { [styles[color]]: !disableState },
+          { [styles[color]]: !disabled },
           className
         )}
         {...rest}
@@ -39,6 +33,6 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   }
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export default Button;
