@@ -8,6 +8,8 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
   '@vitejs/plugin-react': ^3.0.0
+  '@zxing/browser': ^0.1.1
+  '@zxing/library': ^0.19.1
   clsx: ^1.2.1
   eslint: ^8.30.0
   eslint-plugin-react: ^7.31.11
@@ -24,6 +26,8 @@ specifiers:
   vite-plugin-svgr: ^2.4.0
 
 dependencies:
+  '@zxing/browser': 0.1.1_@zxing+library@0.19.1
+  '@zxing/library': 0.19.1
   clsx: 1.2.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -908,6 +912,31 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@zxing/browser/0.1.1_@zxing+library@0.19.1:
+    resolution: {integrity: sha512-fdcHrvvno1NnoiY5++kn/h2b9QnBNyqtK1JqbfY3dfmTdwyXCJr/aT2ZGyRcfe0D3I/THu1I5VJAcpoU0svQMQ==}
+    peerDependencies:
+      '@zxing/library': ^0.19.1
+    dependencies:
+      '@zxing/library': 0.19.1
+    optionalDependencies:
+      '@zxing/text-encoding': 0.9.0
+    dev: false
+
+  /@zxing/library/0.19.1:
+    resolution: {integrity: sha512-rKwvl3Uuqs8yf364iU9l3HDDaIx8yPv+CH6DbtQaQr67VdKLG22G1ukEp9fOdDefE6tpLtRAdMnTrgtpiaKAZw==}
+    engines: {node: '>= 10.4.0'}
+    dependencies:
+      ts-custom-error: 3.3.1
+    optionalDependencies:
+      '@zxing/text-encoding': 0.9.0
+    dev: false
+
+  /@zxing/text-encoding/0.9.0:
+    resolution: {integrity: sha512-U/4aVJ2mxI0aDNI8Uq0wEhMgY+u4CNtEb0om3+y3+niDAsoTCOB33UF0sxpzqzdqXLqmvc+vZyAt4O8pPdfkwA==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /acorn-jsx/5.3.2_acorn@8.8.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2365,6 +2394,11 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
+
+  /ts-custom-error/3.3.1:
+    resolution: {integrity: sha512-5OX1tzOjxWEgsr/YEUWSuPrQ00deKLh6D7OTWcvNHm12/7QPyRh8SYpyWvA4IZv8H/+GQWQEh/kwo95Q9OVW1A==}
+    engines: {node: '>=14.0.0'}
+    dev: false
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}

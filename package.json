@@ -11,6 +11,8 @@
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore"
   },
   "dependencies": {
+    "@zxing/browser": "^0.1.1",
+    "@zxing/library": "^0.19.1",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

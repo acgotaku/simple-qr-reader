@@ -25,6 +25,5 @@
   --font-size-xl: 1.5rem; /* 24px */
   --font-size-2xl: 2.5rem; /* 40px */
   --wdith-main: 320px;
-  --z-index-popper: 1100;
   --z-index-message: 1200;
 }

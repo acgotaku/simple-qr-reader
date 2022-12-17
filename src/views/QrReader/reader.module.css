@@ -17,3 +17,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.qr {
+  margin: 16px 0;
+  width: 100%;
+}
