@@ -16,9 +16,6 @@ const QrReaderView = () => {
         {visible && (
           <QrReader
             className={styles.qr}
-            constraints={{
-              facingMode: 'user'
-            }}
             onResult={(result, error) => {
               if (result) {
                 setResult(result?.getText());
