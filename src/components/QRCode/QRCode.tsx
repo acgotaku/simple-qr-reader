@@ -26,29 +26,39 @@ const QRCode: React.FC<IQRCodeProps> = ({
 }) => {
   const qr = useMemo(() => {
     const { version, level } = property;
-    return QRC.encodeTextWithVersion(text, ERROR_LEVEL_MAP[level], version);
+    try {
+      return QRC.encodeTextWithVersion(text, ERROR_LEVEL_MAP[level], version);
+    } catch (error) {
+      console.log(error);
+    }
   }, [text, property]);
   const path = useMemo(() => {
     const parts: Array<string> = [];
-    for (let y = 0; y < qr.size; y++) {
-      for (let x = 0; x < qr.size; x++) {
-        if (qr.getModule(x, y))
-          parts.push(`M${x + border},${y + border}h1v1h-1z`);
+    if (qr) {
+      for (let y = 0; y < qr.size; y++) {
+        for (let x = 0; x < qr.size; x++) {
+          if (qr.getModule(x, y))
+            parts.push(`M${x + border},${y + border}h1v1h-1z`);
+        }
       }
     }
     return parts.join(' ');
   }, [qr, border]);
 
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox={`0 0 ${qr.size + border * 2} ${qr.size + border * 2}`}
-      stroke="none"
-      {...rest}
-    >
-      <rect width="100%" height="100%" fill={lightColor} />
-      <path d={path} fill={darkColor} />
-    </svg>
+    <>
+      {qr && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox={`0 0 ${qr.size + border * 2} ${qr.size + border * 2}`}
+          stroke="none"
+          {...rest}
+        >
+          <rect width="100%" height="100%" fill={lightColor} />
+          <path d={path} fill={darkColor} />
+        </svg>
+      )}
+    </>
   );
 };
 
