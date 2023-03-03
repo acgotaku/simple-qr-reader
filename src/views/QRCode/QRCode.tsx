@@ -1,11 +1,18 @@
-import { useState } from 'react';
-import { Textarea } from '@/components';
+import { useMemo, useState } from 'react';
+import { Textarea, QRCode } from '@/components';
 import styles from './code.module.css';
 
 const QRCodeView = () => {
   const [text, setText] = useState('Hello, world!');
   const [level, setLevel] = useState('Q');
   const [version, setVersion] = useState('12');
+
+  const property = useMemo(() => {
+    return {
+      version: Number(version),
+      level
+    };
+  }, [version, level]);
   return (
     <div className={styles.code}>
       <h1 className={styles.title}>Generator QR code</h1>
@@ -40,6 +47,9 @@ const QRCodeView = () => {
             min={1}
             max={40}
           />
+        </div>
+        <div className={styles.item}>
+          <QRCode text={text} property={property} className={styles.qr} />
         </div>
       </div>
     </div>
