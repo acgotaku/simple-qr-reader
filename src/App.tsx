@@ -1,8 +1,13 @@
 import React from 'react';
-import QrReaderView from '@/views/QrReader';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from '@/routes';
 
 const App: React.FC = () => {
-  return <QrReaderView />;
+  return (
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  );
 };
 
 export default App;
