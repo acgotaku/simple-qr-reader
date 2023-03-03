@@ -4,7 +4,7 @@ specifiers:
   '@types/node': ^18.11.16
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
-  '@types/react-transition-group': ^4.4.5
+  '@types/react-transition-group': 4.4.2
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
   '@vitejs/plugin-react': ^3.0.0
@@ -19,7 +19,7 @@ specifiers:
   prettier: ^2.8.1
   react: ^18.2.0
   react-dom: ^18.2.0
-  react-transition-group: ^4.4.5
+  react-transition-group: 4.4.2
   ress: ^5.0.2
   typescript: ^4.9.3
   vite: ^4.0.0
@@ -31,14 +31,14 @@ dependencies:
   clsx: 1.2.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
+  react-transition-group: 4.4.2_biqbaboplfbrettd7655fr4n2y
   ress: 5.0.2
 
 devDependencies:
   '@types/node': 18.11.16
   '@types/react': 18.0.26
   '@types/react-dom': 18.0.9
-  '@types/react-transition-group': 4.4.5
+  '@types/react-transition-group': 4.4.2
   '@typescript-eslint/eslint-plugin': 5.46.1_mqzxmroayievgzgel6yrqgih5i
   '@typescript-eslint/parser': 5.46.1_lzzuuodtsqwxnvqeq4g4likcqa
   '@vitejs/plugin-react': 3.0.0_vite@4.0.1
@@ -746,8 +746,8 @@ packages:
       '@types/react': 18.0.26
     dev: true
 
-  /@types/react-transition-group/4.4.5:
-    resolution: {integrity: sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==}
+  /@types/react-transition-group/4.4.2:
+    resolution: {integrity: sha512-KibDWL6nshuOJ0fu8ll7QnV/LVTo3PzQ9aCPnRUYPfX7eZohHwLIdNHj7pftanREzHNP4/nJa8oeM73uSiavMQ==}
     dependencies:
       '@types/react': 18.0.26
     dev: true
@@ -2166,8 +2166,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
+  /react-transition-group/4.4.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==}
     peerDependencies:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
