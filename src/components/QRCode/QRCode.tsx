@@ -20,14 +20,20 @@ const QRCode: React.FC<IQRCodeProps> = ({
   border = 4,
   property = {
     version: 12,
-    level: 'Q'
+    level: 'Q',
+    mask: -1
   },
   ...rest
 }) => {
   const qr = useMemo(() => {
-    const { version, level } = property;
+    const { version, level, mask } = property;
     try {
-      return QRC.encodeTextWithVersion(text, ERROR_LEVEL_MAP[level], version);
+      return QRC.encodeTextWithVersion(
+        text,
+        ERROR_LEVEL_MAP[level],
+        version,
+        mask
+      );
     } catch (error) {
       console.log(error);
     }

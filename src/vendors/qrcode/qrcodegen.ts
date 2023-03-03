@@ -65,9 +65,9 @@ namespace qrcodegen {
       return QrCode.encodeSegments(segs, ecl);
     }
 
-    public static encodeTextWithVersion(text: string, ecl: QrCode.Ecc, version: number): QrCode {
+    public static encodeTextWithVersion(text: string, ecl: QrCode.Ecc, version: number, mask = -1): QrCode {
       const segs: Array<QrSegment> = qrcodegen.QrSegment.makeSegments(text);
-      return QrCode.encodeSegmentsWithVersion(segs, ecl, version);
+      return QrCode.encodeSegmentsWithVersion(segs, ecl, version, mask);
     }
 
     // Returns a QR Code representing the given binary data at the given error correction level.

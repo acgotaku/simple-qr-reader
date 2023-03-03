@@ -6,13 +6,15 @@ const QRCodeView = () => {
   const [text, setText] = useState('Hello, world!');
   const [level, setLevel] = useState('Q');
   const [version, setVersion] = useState('12');
+  const [mask, setMask] = useState('-1');
 
   const property = useMemo(() => {
     return {
       version: Number(version),
-      level
+      level,
+      mask: Number(mask)
     };
-  }, [version, level]);
+  }, [version, level, mask]);
   return (
     <div className={styles.code}>
       <h1 className={styles.title}>Generator QR code</h1>
@@ -46,6 +48,17 @@ const QRCodeView = () => {
             type="number"
             min={1}
             max={40}
+          />
+        </div>
+        <div className={styles.item}>
+          <label className={styles.label}>Mask</label>
+          <input
+            value={mask}
+            className={styles.input}
+            onChange={e => setMask(e.target.value)}
+            type="number"
+            min={-1}
+            max={7}
           />
         </div>
         <div className={styles.item}>
