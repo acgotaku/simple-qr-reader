@@ -11,13 +11,15 @@ import { ReactComponent as Info } from '@/assets/icons/info.svg';
 import { ReactComponent as Success } from '@/assets/icons/success.svg';
 import { ReactComponent as Error } from '@/assets/icons/error.svg';
 import { ReactComponent as Warning } from '@/assets/icons/warning.svg';
+import { ReactComponent as Loading } from '@/assets/icons/loading.svg';
 import { ReactComponent as Close } from '@/assets/icons/close.svg';
 
 const typeToIcon = {
   info: Info,
   success: Success,
   error: Error,
-  warning: Warning
+  warning: Warning,
+  loading: Loading
 };
 
 const Toast = forwardRef<HTMLDivElement, IToastProps>(

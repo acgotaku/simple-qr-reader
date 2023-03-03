@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type ToastType = 'info' | 'success' | 'error' | 'warning';
+export type ToastType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export interface IToastProps {
   type: ToastType;

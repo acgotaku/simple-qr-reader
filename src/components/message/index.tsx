@@ -24,6 +24,10 @@ class Message {
     this.show('error', content, duration);
   }
 
+  loading(content: string, duration = DEFAULT_DURATION) {
+    this.show('loading', content, duration);
+  }
+
   private async getMessageInstance() {
     this.instance = this.instance || (await this.initMessageInstance());
     return this.instance;
