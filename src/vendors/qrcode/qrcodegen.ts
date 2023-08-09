@@ -79,6 +79,10 @@ namespace qrcodegen {
       return QrCode.encodeSegments([seg], ecl);
     }
 
+    public static encodeBinaryWithVersion(data: Readonly<Array<byte>>, ecl: QrCode.Ecc, version: number, mask = -1): QrCode {
+      const seg: QrSegment = qrcodegen.QrSegment.makeBytes(data);
+      return QrCode.encodeSegmentsWithVersion([seg], ecl, version, mask);
+    }
 
     /*-- Static factory functions (mid level) --*/
 

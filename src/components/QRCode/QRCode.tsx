@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import qrcodegen from '@/vendors/qrcode/qrcodegen';
-
+import { base64ToByteArray } from '@/utils/misc';
 import { IQRCodeProps } from './QRCode.types';
 
 const lightColor = '#fff';
@@ -17,6 +17,7 @@ const ERROR_LEVEL_MAP: { [index: string]: qrcodegen.QrCode.Ecc } = {
 
 const QRCode: React.FC<IQRCodeProps> = ({
   text = '',
+  base64 = '',
   border = 4,
   property = {
     version: 12,
@@ -28,16 +29,26 @@ const QRCode: React.FC<IQRCodeProps> = ({
   const qr = useMemo(() => {
     const { version, level, mask } = property;
     try {
-      return QRC.encodeTextWithVersion(
-        text,
-        ERROR_LEVEL_MAP[level],
-        version,
-        mask
-      );
+      if (base64) {
+        return QRC.encodeBinaryWithVersion(
+          base64ToByteArray(base64),
+          ERROR_LEVEL_MAP[level],
+          version,
+          mask
+        );
+      } else {
+        return QRC.encodeTextWithVersion(
+          text,
+          ERROR_LEVEL_MAP[level],
+          version,
+          mask
+        );
+      }
     } catch (error) {
       console.log(error);
     }
-  }, [text, property]);
+  }, [text, base64, property]);
+
   const path = useMemo(() => {
     const parts: Array<string> = [];
     if (qr) {

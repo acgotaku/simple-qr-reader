@@ -6,6 +6,7 @@ export interface QRCodeProperty {
 
 export interface IQRCodeProps extends React.SVGAttributes<SVGElement> {
   text?: string;
+  base64?: string;
   property?: QRCodeProperty;
   border?: number;
 }
