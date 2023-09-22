@@ -8,7 +8,6 @@ export type OnResultFunction = (
 ) => void;
 
 export interface IQrReaderProps {
-  videoId?: string;
   scanDelay?: number;
   constraints?: MediaTrackConstraints;
   className?: string;
