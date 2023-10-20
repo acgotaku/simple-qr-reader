@@ -20,6 +20,7 @@ jobs:
           echo $EVENT_CONTEXT
           echo ${{ github.event.inputs == '' }}
           echo ${{ github.event.inputs.siteName == '' }}
+          echo ${{ github.event.inputs.siteName == null }}
 
   build:
     runs-on: ubuntu-latest
