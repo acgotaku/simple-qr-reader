@@ -18,9 +18,8 @@ jobs:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
-          echo ${{ github.event.inputs }}
           echo ${{ github.event.inputs == '' }}
-          echo ${{ github.event.inputs.siteName }}
+          echo ${{ github.event.inputs.siteName == '' }}
 
   build:
     runs-on: ubuntu-latest
