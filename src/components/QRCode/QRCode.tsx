@@ -16,38 +16,45 @@ const ERROR_LEVEL_MAP: { [index: string]: qrcodegen.QrCode.Ecc } = {
 };
 
 const QRCode: React.FC<IQRCodeProps> = ({
-  text = '',
-  base64 = '',
+  payload = '',
+  base64Encoded = false,
   border = 4,
-  property = {
-    version: 12,
-    level: 'Q',
-    mask: -1
-  },
+  property = {},
   ...rest
 }) => {
   const qr = useMemo(() => {
-    const { version, level, mask } = property;
+    const { version, level = 'M', mask = -1 } = property;
     try {
-      if (base64) {
-        return QRC.encodeBinaryWithVersion(
-          base64ToByteArray(base64),
-          ERROR_LEVEL_MAP[level],
-          version,
-          mask
-        );
+      if (base64Encoded) {
+        if (version) {
+          return QRC.encodeBinaryWithVersion(
+            base64ToByteArray(payload),
+            ERROR_LEVEL_MAP[level],
+            version,
+            mask
+          );
+        } else {
+          return QRC.encodeBinary(
+            base64ToByteArray(payload),
+            ERROR_LEVEL_MAP[level]
+          );
+        }
       } else {
-        return QRC.encodeTextWithVersion(
-          text,
-          ERROR_LEVEL_MAP[level],
-          version,
-          mask
-        );
+        if (version) {
+          return QRC.encodeTextWithVersion(
+            payload,
+            ERROR_LEVEL_MAP[level],
+            version,
+            mask
+          );
+        } else {
+          return QRC.encodeText(payload, ERROR_LEVEL_MAP[level]);
+        }
       }
     } catch (error) {
       console.log(error);
     }
-  }, [text, base64, property]);
+  }, [payload, base64Encoded, property]);
 
   const path = useMemo(() => {
     const parts: Array<string> = [];

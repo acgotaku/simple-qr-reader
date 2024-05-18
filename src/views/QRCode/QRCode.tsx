@@ -12,11 +12,11 @@ const QRCodeView = () => {
 
   const property = useMemo(() => {
     return {
-      version: Number(version),
+      version: autoVersion ? undefined : Number(version),
       level,
       mask: Number(mask)
     };
-  }, [version, level, mask]);
+  }, [version, level, mask, autoVersion]);
   return (
     <div className={styles.code}>
       <h1 className={styles.title}>Generator QR code</h1>
@@ -83,7 +83,12 @@ const QRCodeView = () => {
           />
         </div>
         <div className={styles.item}>
-          <QRCode text={text} property={property} className={styles.qr} />
+          <QRCode
+            payload={text}
+            property={property}
+            base64Encoded={base64Data}
+            className={styles.qr}
+          />
         </div>
       </div>
     </div>
