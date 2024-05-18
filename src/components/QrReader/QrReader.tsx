@@ -17,6 +17,7 @@ const QrReader: React.FC<IQrReaderProps> = ({
 }) => {
   const stopRef = useRef(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -29,6 +30,7 @@ const QrReader: React.FC<IQrReaderProps> = ({
         })
         .then(stream => {
           if (videoRef.current && !videoRef.current.srcObject) {
+            streamRef.current = stream;
             videoRef.current.srcObject = stream;
             videoRef.current.setAttribute('playsinline', '');
             videoRef.current.play();
@@ -54,48 +56,13 @@ const QrReader: React.FC<IQrReaderProps> = ({
 
     return () => {
       stopRef.current = true;
+      // stop the video
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+      }
     };
   }, [scanDelay, constraints, onResult]);
 
-  // const scan = useCallback(async () => {
-  //   const canvas = document.createElement('canvas');
-  //   const video = videoRef.current;
-  //   if (video) {
-  //     const width = video.videoWidth;
-  //     const height = video.videoHeight;
-  //     canvas.width = width;
-  //     canvas.height = height;
-  //     const ctx = canvas.getContext('2d');
-  //     if (ctx && width && height) {
-  //       ctx.drawImage(video, 0, 0, width, height);
-  //       const result = codeReader.decodeFromCanvas(canvas);
-  //       console.log(result);
-  //       // if (result.length > 0) {
-  //       //   setShowReader(false);
-  //       //   onResult?.(result[0]?.decode());
-  //       //   window.clearInterval(intervalRef.current);
-  //       //   video.pause();
-  //       //   if (video.srcObject) {
-  //       //     (video.srcObject as MediaStream)
-  //       //       .getVideoTracks()
-  //       //       .forEach(track => track.stop());
-  //       //     video.srcObject = null;
-  //       //   }
-  //       // }
-  //     }
-  //   }
-  // }, [onResult]);
-
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     intervalRef.current = window.setInterval(() => {
-  //       scan();
-  //     }, scanDelay);
-  //   }
-  //   return () => {
-  //     window.clearInterval(intervalRef.current);
-  //   };
-  // }, [scanDelay, scan]);
   return (
     <section className={cls(styles.reader, className)}>
       <div className={styles.container}>

@@ -52,7 +52,7 @@ const QRCode: React.FC<IQRCodeProps> = ({
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, [payload, base64Encoded, property]);
 
