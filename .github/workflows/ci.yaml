@@ -11,16 +11,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  print_context:
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          EVENT_CONTEXT: ${{ toJSON(github.event) }}
-        run: |
-          echo $EVENT_CONTEXT
-          echo ${{ github.event.inputs == '' }}
-          echo ${{ github.event.inputs.siteName == '' }}
-          echo ${{ github.event.inputs.siteName == null }}
+  # print_context:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - env:
+  #         EVENT_CONTEXT: ${{ toJSON(github.event) }}
+  #       run: |
+  #         echo $EVENT_CONTEXT
+  #         echo ${{ github.event.inputs == '' }}
+  #         echo ${{ github.event.inputs.siteName == '' }}
+  #         echo ${{ github.event.inputs.siteName == null }}
 
   build:
     runs-on: ubuntu-latest
