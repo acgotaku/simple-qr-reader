@@ -4,8 +4,10 @@ import styles from './code.module.css';
 
 const QRCodeView = () => {
   const [text, setText] = useState('Hello, world!');
-  const [level, setLevel] = useState('Q');
+  const [base64Data, setBase64Data] = useState(false);
+  const [level, setLevel] = useState('M');
   const [version, setVersion] = useState('12');
+  const [autoVersion, setAutoVersion] = useState(true);
   const [mask, setMask] = useState('-1');
 
   const property = useMemo(() => {
@@ -27,6 +29,15 @@ const QRCodeView = () => {
           />
         </div>
         <div className={styles.item}>
+          <label className={styles.label}>Base64 data</label>
+          <input
+            type="checkbox"
+            className={styles.checkbox}
+            checked={base64Data}
+            onChange={e => setBase64Data(e.target.checked)}
+          />
+        </div>
+        <div className={styles.item}>
           <label className={styles.label}>Level</label>
           <select
             className={styles.select}
@@ -40,6 +51,15 @@ const QRCodeView = () => {
           </select>
         </div>
         <div className={styles.item}>
+          <label className={styles.label}>Auto version</label>
+          <input
+            type="checkbox"
+            className={styles.checkbox}
+            checked={autoVersion}
+            onChange={e => setAutoVersion(e.target.checked)}
+          />
+        </div>
+        <div className={styles.item}>
           <label className={styles.label}>Version</label>
           <input
             value={version}
@@ -48,6 +68,7 @@ const QRCodeView = () => {
             type="number"
             min={1}
             max={40}
+            disabled={autoVersion}
           />
         </div>
         <div className={styles.item}>
