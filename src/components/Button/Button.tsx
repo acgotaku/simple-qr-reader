@@ -1,4 +1,4 @@
-import { forwardRef, useMemo } from 'react';
+import { forwardRef } from 'react';
 import cls from 'clsx';
 import styles from './button.module.css';
 import { IButtonProps } from './Button.types';

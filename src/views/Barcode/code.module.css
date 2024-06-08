@@ -1,0 +1,61 @@
+.code {
+  height: 100%;
+  max-width: var(--wdith-main);
+  margin: 0 auto;
+}
+
+.title {
+  padding: 8px 0;
+  text-align: center;
+  font-size: var(--font-size-xl);
+}
+
+.item {
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  padding: 4px;
+  font-size: var(--font-size-sm);
+}
+
+.checkbox {
+  align-self: flex-start;
+  width: 24px;
+  height: 24px;
+}
+
+.select {
+  width: 112px;
+  border-radius: 4px;
+  padding: 0 8px;
+  border: 1px solid var(--color-standard-border);
+  color: var(--color-standard-text);
+  background-color: var(--color-standard);
+}
+
+.input {
+  width: 112px;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: var(--font-size-md);
+  border: 1px solid var(--color-standard-border);
+  color: var(--color-standard-text);
+  background-color: var(--color-standard);
+
+  &:disabled {
+    background-color: var(--color-disabled);
+  }
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.barcode {
+  height: 128px;
+}

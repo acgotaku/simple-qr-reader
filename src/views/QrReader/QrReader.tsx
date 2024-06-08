@@ -34,6 +34,11 @@ const QrReaderView = () => {
           generator QR code
         </NavLink>
       </div>
+      <div className={styles.link}>
+        <NavLink to="/barcode" className={styles.linkButton}>
+          generator Barcode
+        </NavLink>
+      </div>
     </div>
   );
 };
